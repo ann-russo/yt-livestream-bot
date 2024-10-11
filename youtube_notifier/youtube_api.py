@@ -4,7 +4,7 @@ import socket
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-API_KEY = os.getenv("YOUTUBE_API_KEY")
+YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
 LOFIGIRL_ID = 'UCSJ4gkVC6NrvII8umztf0Ow'
 FIGHTINCOWBOY_ID = 'UC9N0DmacOi4iWKQyygX89OQ'
 
@@ -16,7 +16,7 @@ def check_live_stream():
         logging.error("No internet connection.")
         return []
     try:
-        youtube = build('youtube', 'v3', developerKey=API_KEY)
+        youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
         request = youtube.search().list(
             part='snippet',
             channelId=FIGHTINCOWBOY_ID,
